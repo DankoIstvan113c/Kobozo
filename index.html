@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Farönk térfogat számító </title>
+</head>
+<body>
+    <section>
+        <div id="kobozo" class="flex-container text-center">
+          <form action="">
+             <h2>Farönk térfogat számító</h2>
+              <select name="" id="muvelet">
+                  <option value="Huber">Huber</option>
+              </select>
+              <div> 
+                  <h2>Térfogat (kéregmentes)</h2><br>
+                  <b id="terfogat">---</b>
+                  <span>m<sup>3</sup></span> 
+              </div>
+              <div>
+                   <h2> Középső átmérő</h2>    
+                   <input type="number" min="0" id="atmero" placeholder="cm">
+              </div>
+              <div>
+                  <h2>Hosszúság</h2> 
+                  <input type="number" min="0" id="hosz" placeholder="m">
+                   <h2>Mennyiség (db)</h2> 
+                  <input type="number"  min="0" id="menyiseg" placeholder="1">
+              </div>
+              <button type="button" id="szamol">Számol</button>
+             
+          </form>  
+      </div>
+    </section>
+    
+    <script>
+      const szamol=document.getElementById("szamol");
+      const muvelet=document.getElementById("muvelet");
+      const terfogat=document.getElementById("terfogat");
+      const atmero=document.getElementById("atmero");
+      const hosz=document.getElementById("hosz");
+      const menyiseg=document.getElementById("menyiseg");
+    
+    
+    
+    
+      function faTerfogat(){
+         let osszeg = ((Math.ceil(Math.pow(atmero.value,2)*Math.PI*hosz.value)/80000)*menyiseg.value);
+         terfogat.innerHTML=osszeg;
+       };
+       szamol.addEventListener("click", faTerfogat);
+    
+    </script>
+</body>
+</html>
